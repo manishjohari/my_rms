@@ -1,0 +1,10 @@
+class AddColIsAdminToUser < ActiveRecord::Migration
+  
+  def self.up
+    remove_column :users, :is_admin ,:boolean,:default=> 0
+  end
+ 
+  def self.down
+    add_column :users,  :is_admin
+  end
+end

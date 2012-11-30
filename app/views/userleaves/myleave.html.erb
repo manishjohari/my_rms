@@ -1,0 +1,38 @@
+<h1> my leave list</h1>
+
+<table border="1" cellspacing="4">
+
+<tr>
+
+		<th><b>From date</b></th>
+		<th><b>To date</b></th>
+		<th><b>Employee Name</b></th>
+		<th><b>Leave type</b></th>
+		<th><b>Number of Days</b></th>
+		<th><b>Status</b></th>
+		<th><b>Comments</b></th>
+		<th><b>Action</b></th>
+     </tr>
+     
+		<% 
+		if @userleave 
+		@userleave.each do |u|%>
+
+
+		<tr>
+		<td><%=u.from_date%></td>
+		<td><%=u.to_date%></td>
+		<td><%=%></td>
+		<td><%=u.leave.leave_type%></td>
+		<td><%=(u.to_date.day - u.from_date.day)+1%></td>
+		<td><%=u.status%></td>
+		<td><%=u.comments%></td>
+		<td><%=%></td>
+		</tr>
+
+		<%		
+		end
+		end
+		%>
+
+</table>

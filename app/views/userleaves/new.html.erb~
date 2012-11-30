@@ -1,0 +1,191 @@
+ <script>
+        $(function() {
+         $("#userleave_from_date").datepicker({ dateFormat: "yy-mm-dd" }).val()
+         $("#userleave_to_date").datepicker({ dateFormat: "yy-mm-dd" }).val()       
+         $( "#userleave_from_time" ).timePicker();
+         $( "#userleave_to_time" ).timePicker();
+         
+				jQuery("#userleave_from_date").datepicker();
+
+				jQuery("#userleave_from_date").change(function() {
+				doDateCompare();
+				});
+
+     
+				jQuery("#userleave_to_date").datepicker();
+
+				jQuery("#userleave_to_date").change(function() {
+				doDateCompare();
+				});
+     
+    function doDateCompare() {
+    
+   var objformdate = jQuery("#userleave_from_date").datepicker().val();
+   var objform = jQuery("#userleave_to_date").datepicker().val();  
+
+       if (objformdate== objform){
+          
+        
+     jQuery("#divtime").show();
+ 
+      }
+    else {        
+     jQuery("#divtime").hide();
+    }
+    };
+    
+    jQuery("#userleave_to_time").timePicker();
+
+				jQuery("#userleave_to_time").change(function() {
+				doTimeCompare();
+				});
+    
+    
+    jQuery("#userleave_from_time").timePicker();
+
+				jQuery("#userleave_from_time").change(function() {
+				doTimeCompare();
+				});
+    
+    
+    function doTimeCompare() {
+		var start = jQuery("#userleave_from_time").timePicker().val(); 
+		var end = jQuery("#userleave_to_time").timePicker().val();
+		s = start.split(':');
+		e = end.split(':');
+		min = e[1]-s[1];
+		hour_carry = 0;
+		if(min < 0){
+		min += 60;
+		hour_carry += 1;
+		}
+		hour = e[0]-s[0]-hour_carry;
+	//	min = ((min/60)*100).toString()
+		diff = hour + ":" + min; 
+		if ((start !="")&&(end !=""))
+		{
+			$("#total_time").val(diff);
+			if(hour < 0)
+			{
+			document.getElementById('message').innerHTML = 'Time field cant be negative';
+			return false;
+			}
+			else
+			{
+				document.getElementById('message').innerHTML = '';
+			}
+	  }
+	  }; 
+    });
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+<script type="text/javascript">
+   
+function goFurther(){
+
+if (document.getElementById("hi").submit == true)
+document.getElementById("divtime").enabled = true;
+else
+document.getElementById("hi").enabled = true;
+}
+
+// window.onload=goFurther;
+</script>
+
+<style type="text/css">
+input[enabled]
+{
+   color:Gray; text-decoration:none;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+<h2>Apply Leave</h2>
+
+
+<%= form_for @userleave do |f| %>
+<%= f.hidden_field :user_id, :value => "#{current_user.id}" %>
+
+
+<% if @userleave.errors.any?%>
+				  <h2> Errors :</h2>
+				  <ul>
+				 <%@userleave.errors.full_messages.each do |messages|%>
+				<li> <%=messages %></li>
+					<% end %>
+					</ul>
+			 		<% end %>
+<div>
+	<%=f.label :leave_type%>
+	<%=f.select("leave_id", Leave.find(:all).collect {|leave| [ leave.leave_type, leave.id ] },{:include_blank => 'Select a leave type'})%>
+</div><br>
+	<div>
+		<%= f.label :from_date %><br />
+		<%= f.text_field :from_date %>
+  </div>
+  	<div>
+		<%= f.label :to_date %><br />
+		<%= f.text_field :to_date %>
+  </div>
+ <div id="divtime" style="display:none;">
+	<div>
+		<%= f.label :from_time %><br />
+		<%= f.text_field :from_time%>
+	</div>
+  <div>
+  <%= f.label :to_time %><br />
+  <%= f.text_field :to_time%></div>
+  
+  <div>
+  <input type="text" name="total_time" id="total_time" value="" readonly="readonly" size="4">
+  
+  </div>
+  
+  <div id="message">
+  
+  </div>
+  
+  
+</div>      
+  <div>
+  <%= f.label :comments %><br />
+  <%= f.text_area :comments, :rows => "2", :cols => "20"%></div>
+  <br>
+ <div><input type="submit" id="hi" value="Apply" Enabled onclick="goFurther()"></div>
+<%end%>
+
+
+
+
+
+

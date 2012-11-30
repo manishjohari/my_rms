@@ -1,7 +1,47 @@
 Hrms::Application.routes.draw do
+  
 
+  
+
+ namespace :admin do
+ 	resources :announcements 
+ 	resources :users
+ 	resources :payrolls
+ 	
+ end
+#  devise_for :admins
+
+  get "leaves/new"
+
+  get "leaves/edit"
+
+  get "leaves/show"
+
+  get "leaves/index"
+
+  get "userleaves/new"
+
+  get "userleaves/edit"
+
+  get "userleaves/show"
+
+  get "userleaves/index"
+
+  get "userleaves/myleave"
+  
+  get "userleaves/leavesummary"
+   
+  get "users/company_info_general"
+  
+  get "users/show_user"
+  
+  get "users/salary_structure"
+  
+ #get  "users/_admin_form"
+
+    
   devise_for :users
-#devise_for :users, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+  #devise_for :users, :path => "usuarios", :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,8 +54,10 @@ Hrms::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     resources :users
-     
+		resources :users
+		#resources :announcements
+		resources :userleaves
+         
 
   # Sample resource route with options:
   #   resources :products do

@@ -6,16 +6,31 @@ label
  }
 </style>
 
- <div style="margin-left:100px;">
- 
+			<div style="margin-left:100px;">
 
- 
- 
-<h1>hi user!</h1>
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+			<%#= image_tag @user.pic.url(:medium) %>
+			<%#=link_to 'delete',"user.pic.url" , :method=> :delete%>
+<br><br><br><br><br><br><br><br>
+			<%= image_tag @user.pic.url(:thumb) %>
+
+			<h2>Personal Details</h2>
+			</p>
+
+			<%= form_for @user,:html => { :multipart => true } do |f| %>
+			<%=f.label :pic %>
+			<%=f.file_field :pic %>
+			<%=f.submit :upload %>
+			<%end%>
+
+			<%= form_for(@user) do |f| %>
+			<%= devise_error_messages! %>
+
+			<div style="margin-left:0px;">
 
 
+			</div>
+
+  
 <div>
   <%= f.label :first_name %><br />
   <%= f.text_field :first_name %>
@@ -64,14 +79,11 @@ label
   <%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+  
+<br><br>
+  <div><%= f.button "Edit" %>
+   <%= f.button "save" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %></div>
+<%#= render "devise/shared/links" %></div>
 </p>

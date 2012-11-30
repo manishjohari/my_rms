@@ -1,0 +1,49 @@
+			<br><br><br><br><br>
+			<h1>Add User</h1>
+
+
+<fieldset>
+		<%= form_for(@user, :url=>admin_users_path) do |user| %>
+
+				<div>
+				<%= user.label :first_name %><br />
+				<%= user.text_field :first_name %>
+        
+				<%= user.label :last_name %>
+				<%= user.text_field :last_name %>
+				</div>
+				
+				<div>
+				<%= user.label :designation %><br />
+				<%#= user.text_field :designation %>
+				 <%= user.select :designation,[['Select a Type','select a type'],['Sr.Software Engineer','sr.software engineer'],['Associate Engineer','associate engineer'],['Engineer','engineer'],['Tech Lead','tech lead'],['Director','director'],['Intern','intern']] %>
+				</div>
+        
+        
+        <div>
+				<%= user.label :date_of_joining %><br />
+				<%= user.text_field :date_of_joining %>
+				</div>
+        
+        
+        <div>
+				<%= user.label :email %><br />
+				<%= user.email_field :email %>
+				</div>
+        
+        <div>
+				<%#= user.label :password %><br />
+				<%#= user.password_field :password %>
+				</div>
+
+				<br><br>
+				<div><%= user.button "Add" %>
+				<input type="reset" value="Reset"><br>
+</div>
+
+
+
+					<%
+					end
+					%>
+					</fieldset>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title><%=@from%></title>
+</head>
+<body>
+ 
+
+
+  hello user!
+ 
+			
+			<p>Welcome to Idify solutions HRMS!.</p>
+			Your username & password is mentioned below.
+				
+			Please go through this link <%=@subject%>  & login with your email-id & password</p>
+
+
+			<p>Username:<%=@email%></p>
+			<p>password:	<%=@password%></p>
+
+
+			<br><br>
+
+
+			Thanks
+
+
+		
+
+</body>
+</html>
+  
+

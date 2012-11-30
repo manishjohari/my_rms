@@ -1,0 +1,6 @@
+<td>Picture</td>
+			<td>  <%# if FileTest.exists?(@user.pic.url) %>
+						<%=image_tag @user.pic.url(:thumb)%>
+						<%#else%>
+						<%#=image_tag '/assets/rails.png' %>
+						<%#end%>

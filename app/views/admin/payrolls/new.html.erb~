@@ -1,0 +1,92 @@
+<script type="text/javascript">
+	function calculate()
+	{
+	
+	
+		document.getElementById('payroll_total_salary').value=parseFloat(document.getElementById('payroll_basic').value)+parseFloat(document.getElementById('payroll_hra').value)+parseFloat(document.getElementById('payroll_conveyance').value)+parseFloat(document.getElementById('payroll_medical').value)+parseFloat(document.getElementById('payroll_advance_monthly_preferential_bonus').value)
+
+
+		if (document.getElementById('payroll_total_salary').value<100)
+		{
+			alert('Total cannot be less than 100');
+			return false;
+		}
+		else if(document.getElementById('payroll_total_salary').value>100)
+		{
+			alert('Total cannot be more than 100');
+			return false;
+		}
+	//total=document.getElementById('payroll_total_salary').value
+	return true;
+	}
+</script>
+
+<br><br><br>
+<h2>Payroll</h2>
+
+	<%=form_for @payroll , :url=>  admin_payrolls_path  do |payroll|%>
+       
+       <div>
+       <%#= payroll.label :annual_salary %>
+			<%#= payroll.text_field :monthly_salary, "size" => 4 %></div>
+     <br><br
+       
+       <div>
+			<%= payroll.label :basic %>
+			<%#= payroll.label :'30%' %></div>
+				<%= payroll.text_field :basic, "size" => 2 %>
+     <br><br>
+      <div>
+      <%= payroll.label :hra %>
+			<%= payroll.text_field :hra, "size" => 2 %>
+			
+			</div>
+		 <br><br>	
+		   <div>
+			<%= payroll.label :conveyance %>
+			<%= payroll.text_field :conveyance, "size" => 2 %></div>
+			 <br><br>
+			  <div>
+			<%= payroll.label :medical %>
+			<%= payroll.text_field :medical, "size" => 2 %></div>
+			 <br><br>
+			  <div>
+			<%= payroll.label :advance_monthly_preferential_bonus %>
+			<%#= payroll.label :'50%' %>
+			<%= payroll.text_field :advance_monthly_preferential_bonus, "size" => 2 %></div>
+			 <br><br>
+			  <div>
+			<%= payroll.label :total_salary %>
+			<%= payroll.text_field :total_salary, "size" => 2 %></div>
+			 <br><br>
+			  <div>
+			  
+			  
+			  
+			  <div>
+			<%= payroll.button "calculate", :onclick=>'return calculate()' %>
+				<%#= payroll.button "Reset"  %></div>
+			</div>
+			
+			<%#= payroll.label :tds %>
+			<%#= payroll.text_field :tds, "size" => 2%></div>
+			 <br><br>
+			  <div>
+			<%#= payroll.label :pf_contributions %>
+			<%#= payroll.text_field :pf_contributions, "size" => 2 %></div>
+			 <br><br>
+			  <div>
+			<%#= payroll.label :total_deductions %>
+			<%#= payroll.text_field :total_deductions, "size" => 2 %></div>
+			
+			
+ 
+			
+
+
+ 
+	<% end %>
+
+ 
+
+

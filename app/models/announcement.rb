@@ -1,0 +1,11 @@
+class Announcement < ActiveRecord::Base
+  
+   attr_accessible :message, :announcement_list
+ 
+  
+  
+  
+  
+end
+
+ 

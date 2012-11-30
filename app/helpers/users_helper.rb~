@@ -1,0 +1,5 @@
+module UsersHelper
+def user_pic(user)
+  user.pic.url.present? ? image_tag user.user_pic : image_tag 'UserDefault.png'
+end
+end

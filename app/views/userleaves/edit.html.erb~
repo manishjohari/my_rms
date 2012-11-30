@@ -1,0 +1,11 @@
+<h1>Userleaves#edit</h1>
+<p>Find me in app/views/userleaves/edit.html.erb</p>
+
+<div>
+
+  status:<input type="checkbox" name="pending1" value="pending" checked="checked">pending approval
+         <input type="checkbox" name="pending2" value="pending">rejected
+         <input type="checkbox" name="pending3" value="pending">cancelled
+         <input type="checkbox" name="pending4" value="pending">scheduled
+         <input type="checkbox" name="pending5" value="pending">taken
+  </div>

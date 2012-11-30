@@ -1,0 +1,15 @@
+<h1> Announcement </h1>
+
+<%= form_for @announcement do |a| %>
+<fieldset style= "width:300px;height:380px"><br><br>
+<div>
+  <%= a.label :message %><br/><br>
+  <%= a.text_area :message, :rows => "5", :cols => "60"%></div>
+  <br>
+<div>
+<input type="submit" value="send" >
+</div>
+<div><br>
+<%=link_to "Announcement list"%>
+</fieldset>
+<%end%>

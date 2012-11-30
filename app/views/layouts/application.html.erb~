@@ -2,15 +2,27 @@
 <html>
 <head>
   <title>Hrms</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  
+  <%= stylesheet_link_tag  "application", "jquery-ui","timePicker.css", :media => "all" %>
+  <%= javascript_include_tag "application" ,"jquery-1.8.2.js","jquery.timePicker.min.js","jquery.timePicker.js"%>
+  <%= javascript_include_tag "application" ,"jquery-ui.jss"%>
+     
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
-<%= yield %>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<%if current_user%>
+			<p align="right">Welcome <%= current_user.email%>
+			<%= link_to "Sign_out", "/users/sign_out", :method=> :delete%></p>
+			<%if current_user.is_admin?%>
+			<%=render :partial=> "shared/animated-menu"%>
+			<%else%> 
+			<%=render :partial=> "shared/top_menu"%>  
+			<%end%>
+			<%end%>
+			
+			<%= yield %>
 
 </body>
 </html>

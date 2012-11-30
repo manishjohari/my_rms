@@ -58,6 +58,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
   end
   
   
+  
+  
+  
+  
+  
+  
+  
   def down
   remove_table :users
   

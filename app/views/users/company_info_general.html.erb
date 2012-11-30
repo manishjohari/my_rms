@@ -1,0 +1,22 @@
+
+      
+    <table border="1" >
+		<%@pending_leaves.each do |pending_leave|%>
+		<br>
+	
+		<tr>
+		<td><%#=pending_leave.user.email%></td>
+		<td><%=pending_leave.status%></td>
+		<td><%=pending_leave.leave.leave_type%></td>
+		</tr>
+
+		<%end%>
+		</table>
+
+	</div>
+	
+		<%#=link_to "Employee list",users_show_user_path %>
+		<%#=link_to "Announcement",new_admin_announcement_path%>
+		<%#=link_to "Projects"%>
+		<%#=link_to "Payroll"%>
+		<%#=link_to "DMS"%>

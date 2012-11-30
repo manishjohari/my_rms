@@ -1,0 +1,28 @@
+<html>
+<head>
+<title><%=@subject %></title>
+</head>
+<body>
+ 
+
+
+  Hi!
+ 
+			<p> You are having one email message from  <%=@from%> 
+			<br><br>
+			
+			
+			
+			<%=@announcement.message%> 
+			<br><br>
+			
+
+			Thanks
+      
+
+		
+
+</body>
+</html>
+  
+

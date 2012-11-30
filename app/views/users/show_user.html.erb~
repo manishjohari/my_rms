@@ -1,0 +1,22 @@
+
+<h1>employees</h1>
+<table border="1">
+	
+	
+	 
+	    	<th>Employee Name</th>
+	    	<th>Designation</th>
+	    	<th>Date of Joining</th>
+			<%@user.each do |u|%>
+			<%if !u.is_admin%>
+		
+				<tr>
+				<td><p><%=u.email.split("@")[0]%></p></td>
+				<td><%=u.designation%></td>
+				<td><%=u.date_of_joining%></td>
+				</tr>
+			<%end end%>
+		
+		  
+	
+</table>

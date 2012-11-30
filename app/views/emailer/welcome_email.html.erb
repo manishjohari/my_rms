@@ -1,0 +1,31 @@
+<html>
+<head>
+<title><%=@subject %></title>
+</head>
+<body>
+ 
+
+
+  Hi!
+ 
+			<p> You are having one email message from a user <%=@userleave.user_email(@userleave.user_id).email%> regarding leave
+			
+			
+			
+			from
+			<%=@userleave.from_date%> to 
+			<%=@userleave.to_date%><br><br>
+			Message:
+			<%=@userleave.comments%><br><br>
+
+			Thanks<br><br>
+
+
+		
+
+</body>
+</html>
+  
+ 
+
+

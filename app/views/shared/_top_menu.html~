@@ -1,0 +1,205 @@
+<html>
+<head>
+
+<%= stylesheet_link_tag "menu_style"%>
+<script type="text/javaScript"><!--//--><![CDATA[//><!--
+var dropdownMenuHidden = false;
+
+function menuExited() {
+	var topUl = document.getElementById('nav');
+	var uls = topUl.getElementsByTagName('ul');
+	for(var i=0; i<uls.length; i++) {
+	    ul = uls[i];
+	    ul.style.left = '-999em';
+	}
+	dropdownMenuHidden = true;	
+}
+
+function menuclicked(item) {
+	var topUl = document.getElementById('nav');
+	var uls = topUl.getElementsByTagName('ul');
+	for(var i=0; i<uls.length; i++) {
+	    ul = uls[i];
+	    ul.style.left = '-999em';
+	}
+	dropdownMenuHidden = true;	
+}
+
+function topMenuHover() {
+    if (dropdownMenuHidden) {
+		var topUl = document.getElementById('nav');
+		var uls = topUl.getElementsByTagName('ul');
+		for(var i=0; i<uls.length; i++) {
+		    ul = uls[i];
+		    ul.style.left = '';
+		}        
+    }
+}
+//--><!]]></script>
+</head>
+<div id="top-menu">
+<ul onmouseout="menuExited();" id="nav">
+
+			
+			<li onmouseover="topMenuHover();" id="leave" class="l1">
+				<a class="l1_link" href="./index.php?menu_no_top=leave&amp;reset=1">
+					<span class="drop">Leave</span>
+				</a>
+				<ul class="l2" style="left: -999em;">	
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link leavesummary" target="rightMenu" href=" /userleaves/leavesummaryss">
+								<span>Leave Summary</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link leavelist" target="rightMenu" href="/userleaves/myleave">
+								<span>My Leave</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link applyLeave" target="rightMenu" href=" /userleaves/new">
+								<span>Apply</span>
+							</a>
+						</li>
+
+				</ul>
+				
+				</li>
+			
+			<li onmouseover="topMenuHover();" id="time" class="l1">
+				<a class="l1_link" href="userleaves_new">
+					<span class="drop">Time</span>
+				</a>
+				<ul class="l2" style="left: -999em;">	
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link parent timesheets" target="rightMenu" href=" /userleaves/new">
+								<span>Timesheets</span>
+							</a>
+						<ul class="l3" style="left: -999em;">
+						<li class="l3">
+							<a target="rightMenu" class="timesheets" onclick="menuclicked(this);" href="userleaves_new">
+								<span>My Timesheets</span></a></li>
+
+					</ul>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link parent timesheets" target="rightMenu" href="./symfony/web/index.php/attendance/punchIn">
+								<span>Attendance</span>
+							</a>
+						<ul class="l3" style="left: -999em;">
+						<li class="l3">
+							<a target="rightMenu" class="timesheets" onclick="menuclicked(this);" href="./symfony/web/index.php/attendance/viewMyAttendanceRecord">
+								<span>My Records</span></a></li>
+						<li class="l3">
+							<a target="rightMenu" class="timesheets" onclick="menuclicked(this);" href="./symfony/web/index.php/attendance/punchIn">
+								<span>Punch In/Out</span></a></li>
+
+					</ul>
+						</li>
+
+				</ul>
+				
+				</li>
+			
+			<li onmouseover="topMenuHover();" id="benefits" class="l1">
+				<a class="l1_link" href="./index.php?menu_no_top=benefits">
+					<span class="drop">Benefits</span>
+				</a>
+				<ul class="l2" style="left: -999em;">	
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link parent hsp" target="rightMenu" href="lib/controllers/CentralController.php?benefitcode=Benefits&amp;action=Search_Hsp_Summary&amp;empId=0008&amp;year=2012">
+								<span>Health savings plan</span>
+							</a>
+						<ul class="l3" style="left: -999em;">
+						<li class="l3">
+							<a target="rightMenu" class="hsp" onclick="menuclicked(this);" href="lib/controllers/CentralController.php?benefitcode=Benefits&amp;action=Hsp_Expenditures&amp;year=2012&amp;employeeId=0008">
+								<span>HSP Expenditures</span></a></li>
+						<li class="l3">
+							<a target="rightMenu" class="hsp" onclick="menuclicked(this);" href="lib/controllers/CentralController.php?benefitcode=Benefits&amp;action=Hsp_Request_Add_View">
+								<span>HSP Request</span></a></li>
+						<li class="l3">
+							<a target="rightMenu" class="hsp" onclick="menuclicked(this);" href="lib/controllers/CentralController.php?benefitcode=Benefits&amp;action=Search_Hsp_Summary&amp;empId=0008&amp;year=2012">
+								<span>Personal HSP Summary</span></a></li>
+
+					</ul>
+						</li>
+
+				</ul>
+				
+				</li>
+			
+			<li onmouseover="topMenuHover();" id="perform" class="l1">
+				<a class="l1_link" href="#">
+					<span class="drop">salary</span>
+				</a>
+				<ul class="l2" style="left: -999em;">	
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link definekpi" href="/users/salary_structure">
+								<span>Structure</span>
+							</a>
+						</li>
+
+				</ul>
+				
+				</li>
+			
+			<li onmouseover="topMenuHover();" id="ess" class="l1">
+				<a class="l1_link" target="rightMenu" href=" /users/salary_structure">
+					<span class="current">ESS</span>
+				</a>
+				
+				</li>
+			
+			<li onmouseover="topMenuHover();" id="help" class="l1">
+				<a class="l1_link" href="#">
+					<span class="drop">Help</span>
+				</a>
+				<ul class="l2" style="left: -999em;">	
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link help" target="_blank" href="help.php">
+								<span>Help Contents</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link support" target="_blank" href="http://www.orangehrm.com/support-plans.php?utm_source=application_support&amp;utm_medium=app_url&amp;utm_campaign=orangeapp">
+								<span>Support</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link forum" target="_blank" href="http://www.orangehrm.com/forum/">
+								<span>Forum</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link blog" target="_blank" href="http://www.orangehrm.com/blog/">
+								<span>Blog</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link support" target="_blank" href="http://www.orangehrm.com/training.php?utm_source=application_traning&amp;utm_medium=app_url&amp;utm_campaign=orangeapp">
+								<span>Training</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link support" target="_blank" href="http://www.orangehrm.com/addon-plans.shtml?utm_source=application_addons&amp;utm_medium=app_url&amp;utm_campaign=orangeapp">
+								<span>Add-Ons</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link support" target="_blank" href="http://www.orangehrm.com/customizations.php?utm_source=application_cus&amp;utm_medium=app_url&amp;utm_campaign=orangeapp">
+								<span>Customizations</span>
+							</a>
+						</li>
+						<li class="l2">
+							<a onclick="menuclicked(this);" class="l2_link bug" href="./index.php?menu_no_top=bug">
+								<span>Bug Tracker</span>
+							</a>
+						</li>
+
+				</ul>
+				
+				</li>
+</ul>
+
+</div>
+</html>
